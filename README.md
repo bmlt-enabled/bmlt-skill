@@ -6,11 +6,14 @@ Knowledge-only — no MCP server, no install — Claude uses `WebFetch` / `curl`
 
 ## Install
 
-Drop into any of:
+Via the [skills CLI](https://skills.sh):
 
-- `~/.claude/skills/bmlt/` — user-global
-- `<project>/.claude/skills/bmlt/` — project-local
-- Publish to the skills ecosystem and install via `npx skills add bmlt-enabled/bmlt-skill`
+```bash
+npx skills add bmlt-enabled/bmlt-skill          # project-local (.claude/skills/bmlt/)
+npx skills add bmlt-enabled/bmlt-skill -g -y    # user-global (~/.claude/skills/bmlt/), no prompts
+```
+
+Or clone/copy the directory into `~/.claude/skills/bmlt/` (user-global) or `<project>/.claude/skills/bmlt/` (project-local).
 
 ## What it covers
 
