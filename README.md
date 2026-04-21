@@ -15,6 +15,18 @@ npx skills add bmlt-enabled/bmlt-skill -g -y    # user-global (~/.claude/skills/
 
 Or clone/copy the directory into `~/.claude/skills/bmlt/` (user-global) or `<project>/.claude/skills/bmlt/` (project-local).
 
+## Update
+
+```bash
+npx skills check                 # list available updates without installing
+npx skills update                # update all installed skills (auto-detects scope)
+npx skills update bmlt           # update just this skill
+npx skills update -g             # user-global installs only
+npx skills update -p             # project installs only
+```
+
+The CLI pulls the latest `main` of this repo each run — any push here is picked up on the next `update`.
+
 ## What it covers
 
 - All 9 Semantic API endpoints (`GetSearchResults`, `GetFormats`, `GetServiceBodies`, `GetChanges`, `GetFieldKeys`, `GetFieldValues`, `GetNAWSDump`, `GetServerInfo`, `GetCoverageArea`)
@@ -31,6 +43,8 @@ SKILL.md                        main skill — frontmatter + decision flow
 references/
   api-endpoints.md              9 endpoints with params & format compat
   search-parameters.md          GetSearchResults filter grammar
+  sample-responses.md           real JSON shapes per endpoint
+  presenting-meetings.md        how to format results for a human
   data-types.md                 weekdays, venue types, field keys, langs
 examples/
   common-queries.md             ready-to-paste URL recipes

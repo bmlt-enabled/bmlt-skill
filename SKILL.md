@@ -15,7 +15,7 @@ When the user asks a BMLT question, work through these steps in order:
 2. **Pick the endpoint.** See [references/api-endpoints.md](references/api-endpoints.md). For "find meetings" questions → `GetSearchResults`. For "what formats/regions/service bodies exist?" → `GetFormats` / `GetServiceBodies`. For exports → `GetNAWSDump` (CSV only).
 3. **Build parameters.** See [references/search-parameters.md](references/search-parameters.md) for the full filter grammar. Always URL-encode values.
 4. **Fetch** using `WebFetch` (preferred) or `curl` / `Bash`. BMLT responses are public and CORS-open, no auth needed.
-5. **Present results** human-readably — don't dump raw JSON unless the user asked for it. Summarize meeting counts, group by day, show times in local format.
+5. **Present results** human-readably — don't dump raw JSON unless the user asked for it. Follow [references/presenting-meetings.md](references/presenting-meetings.md): show `meeting_name + location_text + start_time` for each, group by day, keep times in the meeting's local timezone.
 
 ## Discovering servers
 
@@ -112,6 +112,8 @@ Any other root URL can be assumed to be non-aggregator (single-server mode). If 
 
 - [`references/api-endpoints.md`](references/api-endpoints.md) — all 9 endpoints, params, format support
 - [`references/search-parameters.md`](references/search-parameters.md) — full GetSearchResults filter grammar
+- [`references/sample-responses.md`](references/sample-responses.md) — real JSON shapes per endpoint — **read before formatting output**
+- [`references/presenting-meetings.md`](references/presenting-meetings.md) — how to display results to a human (weekday/venue/time formatting, grouping)
 - [`references/data-types.md`](references/data-types.md) — weekdays, venue types, field keys, language codes
 - [`examples/common-queries.md`](examples/common-queries.md) — recipe book of ready-to-use URLs
 - [`scripts/bmlt.sh`](scripts/bmlt.sh) — thin shell helper for fetching/formatting BMLT responses
