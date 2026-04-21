@@ -1,6 +1,6 @@
 ---
 name: bmlt
-description: Query BMLT (Basic Meeting List Tool) root servers for Narcotics Anonymous meeting data. Use whenever the user asks about NA meetings, finding recovery meetings near a location, meeting formats, service bodies, regions, NAWS exports, or mentions a BMLT root server, aggregator, TSML, or URLs matching `*/main_server/client_interface/*`. Also triggers on phrases like "find me an NA meeting", "virtual NA meetings", "NA meetings on Tuesday", or when the user provides a BMLT root URL and asks to query it.
+description: Query BMLT root servers for Narcotics Anonymous meeting data. Use for NA meeting lookup, service bodies, formats, NAWS exports, or any `*/main_server/client_interface/*` URL.
 ---
 
 # BMLT Skill
