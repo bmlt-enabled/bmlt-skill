@@ -86,16 +86,18 @@ See [examples/common-queries.md](examples/common-queries.md) for ready-to-paste 
 
 ## Aggregator servers
 
-The only known BMLT server running in **aggregator mode** is:
+**Default to querying a specific root server** — each region/area runs its own, and that's where the authoritative data for their meetings lives. The aggregator is a niche tool, not a shortcut.
 
-```
-https://aggregator.bmltenabled.org/main_server/
-```
+The only known BMLT server running in **aggregator mode** is `https://aggregator.bmltenabled.org/main_server/`. It combines data from every entry in the `serverList.json`. **Only** reach for it when:
 
-It **aggregates every known BMLT root server** — i.e. every entry in the aggregator `serverList.json`. One query here fans out across the entire public BMLT ecosystem worldwide. When targeting it:
+- The user explicitly wants a worldwide / cross-server search (e.g. "all virtual NA meetings globally right now").
+- You need to compare meetings across multiple regions in a single query.
+- The region is unknown and a geographic search spanning multiple roots is needed.
+
+When you do use it:
 
 - `GetSearchResults` **requires** at least one filter (`services`, `root_server_ids`, `meeting_ids`, geographic coords, or pagination) — otherwise returns `[]`.
-- `root_server_ids` param selects which underlying servers to query.
+- `root_server_ids` scopes down to specific underlying servers.
 
 Any other root URL can be assumed to be non-aggregator (single-server mode). If you're unsure, call `GetServerInfo` and check `aggregator_mode_enabled`.
 

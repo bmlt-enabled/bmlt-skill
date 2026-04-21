@@ -98,7 +98,7 @@ Returns `[{location_municipality, ids}, ...]`.
 
 Look for `aggregator_mode_enabled`. If `1`, `GetSearchResults` needs at least one filter.
 
-In practice there is only **one** known aggregator — `https://aggregator.bmltenabled.org/main_server/` — which aggregates every server in the `serverList.json`. Example: all virtual meetings across every NA root server in the world:
+In practice there is only **one** known aggregator — `https://aggregator.bmltenabled.org/main_server/` — which aggregates every server in the `serverList.json`. **Most queries should target a specific root server instead** (each region runs its own). Only reach for the aggregator for genuine cross-server / worldwide searches. Example — every virtual NA meeting worldwide:
 
 ```
 https://aggregator.bmltenabled.org/main_server/client_interface/json/?switcher=GetSearchResults&venue_types=2&data_field_key=meeting_name,weekday_tinyint,start_time,virtual_meeting_link,root_server_uri

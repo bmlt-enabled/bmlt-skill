@@ -14,13 +14,13 @@
 
 set -euo pipefail
 
-AGGREGATOR_URL="https://raw.githubusercontent.com/bmlt-enabled/aggregator/refs/heads/main/serverList.json"
+SERVER_LIST_URL="https://raw.githubusercontent.com/bmlt-enabled/aggregator/refs/heads/main/serverList.json"
 
 cmd=${1:-help}
 
 case "$cmd" in
   servers)
-    curl -sSL "$AGGREGATOR_URL" | jq -r '.[] | "\(.id)\t\(.name)\t\(.url)"' | column -t -s $'\t'
+    curl -sSL "$SERVER_LIST_URL" | jq -r '.[] | "\(.id)\t\(.name)\t\(.url)"' | column -t -s $'\t'
     ;;
 
   call)
